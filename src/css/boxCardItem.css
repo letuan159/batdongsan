@@ -1,92 +1,178 @@
-
 .card {
-    max-width: 300px;
-    height: 380px;
-    background: #ffffff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    margin: 0px 10px 20px 10px;
+  max-width: 300px;
+  height: 380px;
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  margin: 0px 10px 20px 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+  );
+  transform: rotate(45deg);
+  transition: 0.6s;
+  opacity: 0;
+}
+
+.card:hover::before {
+  animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+      transform: translateX(-100%) rotate(45deg);
+      opacity: 0;
   }
-  .card_top {
-    height: 262px;
-    border-radius: 15px 15px 0px 0px;
-    padding: 5px;
-    position: relative;
-    overflow: hidden;
+  50% {
+      opacity: 0.5;
   }
-  .card_top img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px 10px 0px 0px;
-    transition: 0.35s;
-    /* position: absolute; */
+  100% {
+      transform: translateX(100%) rotate(45deg);
+      opacity: 0;
   }
-  .card:hover img {
-    height: 105%;
+}
+
+.card_top {
+  height: 262px;
+  border-radius: 15px 15px 0px 0px;
+  padding: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card_top img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0px 0px;
+  transition: 0.5s ease-in-out;
+  object-fit: cover;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+.card_bottom {
+  width: 100%;
+  height: 140px;
+  border-radius: 0 0 15px 15px;
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  transition: 0.3s ease;
+}
+
+.card_bottom_priceStar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card_bottom_priceStar span {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.card_bottom_priceStar p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  background: linear-gradient(45deg, #ffa34d, #ff7e1f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 10px;
+}
+
+.card_bottom_priceStar .text {
+  width: 300px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  color: #2c3e50;
+  line-height: 1.4;
+  margin-left: 10px;
+}
+
+.card_bottom button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  bottom: 15px;
+}
+
+.card_bottom .btn_right {
+  background: linear-gradient(45deg, #f67575, #e74c3c);
+  right: 15px;
+}
+
+.card_bottom .btn_left {
+  background: linear-gradient(45deg, #FFA34D, #ff7e1f);
+  left: 15px;
+}
+
+.card_bottom button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card_bottom button:active {
+  transform: translateY(0);
+}
+
+/* Pulse animation for buttons */
+@keyframes pulse {
+  0% {
+      box-shadow: 0 0 0 0 rgba(255, 163, 77, 0.4);
   }
-  .card_bottom {
-    width: 100%;
-    height: 140px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    position: absolute;
-    bottom: 0;
-    padding: 5px 5px 0px 5px;
+  70% {
+      box-shadow: 0 0 0 10px rgba(255, 163, 77, 0);
   }
-  .card_bottom_priceStar {
-    display: flex;
-    flex-direction: row;
-    /* background-color: green; */
-    align-items: center;
-    justify-content: space-between;
+  100% {
+      box-shadow: 0 0 0 0 rgba(255, 163, 77, 0);
   }
-  .card_bottom_priceStar span {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 5px;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    overflow-wrap: nowrap;
-  }
-  .card_bottom_priceStar p {
-    margin: 0px;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 20px;
-    color: #ffa34d;
-    margin-left: 10px;
-  }
-  .card_bottom_priceStar .text {
-    width: 300px;
-    margin: 0px;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 20px;
-    color: #141414;
-    line-height: 20px;
-    margin-left: 10px;
-  }
-  .card_bottom .btn_right {
-    background: #f67575;
-    float: right;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-  }
-  .card_bottom .btn_left {
-    background: #FFA34D;
-    float: left;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  .card_bottom button {
-    padding: 2px 10px 5px 10px;
-    border: none;
-    border-radius: 10px;
-    /* text */
-    font-weight: 300;
-    font-size: 16px;
-    color: #ffffff;
-  }
-  
+}
+
+.card_bottom .btn_left:hover {
+  animation: pulse 1.5s infinite;
+}
+
+.card_bottom .btn_right:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Hover effect for price */
+.card_bottom_priceStar p:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}

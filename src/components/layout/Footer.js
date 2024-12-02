@@ -8,7 +8,7 @@ function Footer() {
         <div className="footer">
             <img src={logo} alt="" className="footer_logo" />
             <div className="footer_detail">
-                <p><span className="header_logo-lg">SKY</span><span className="header_logo-md">.HOUSE</span> </p>
+                <p><span className="header_logo-lg">Xóm</span><span className="header_logo-md">.Nhà Lá</span> </p>
                 <div className="footerInfo">
                     <div className="footerInfo_item">
                         <box-icon type='solid' name='map' color="#FFFFFF"></box-icon>
@@ -16,11 +16,11 @@ function Footer() {
                     </div>
                     <div className="footerInfo_item">
                         <box-icon name='gmail' type='logo' color="#FFFFFF"></box-icon>
-                        <p>bmtuan.20it1@vku.udn.vnvn</p>
+                        <p>tuanlda.22git@vku.udn.vn</p>
                     </div>
                     <div className="footerInfo_item">
                         <box-icon name='phone-call' type='solid' color="#FFFFFF"></box-icon>
-                        <p>0999088777</p>
+                        <p>0889945209</p>
                     </div>
                     <div className="footerInfo_item">
                         <box-icon name='time-five' color="#FFFFFF"></box-icon>

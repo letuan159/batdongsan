@@ -55,8 +55,8 @@ function Header({ name, avatar, setEmailUserLogin }) {
     return (
         <div className="header">
             <div className="header_logo">
-                <span className="header_logo-lg">SKY</span>
-                <span className="header_logo-md">.HOUSE</span>
+                <span className="header_logo-lg">XÓM</span>
+                <span className="header_logo-md">.NHÀ LÁ</span>
             </div>
             {name === undefined ?
                 <div className="header_action">
